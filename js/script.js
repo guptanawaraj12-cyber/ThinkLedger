@@ -1,12 +1,6 @@
-// Smooth scroll
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-}
-
-// Responsive navbar toggle
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
-
-hamburger.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
+// js/main.js
+// Scrollspy / active nav highlight
+const navLinks=document.querySelectorAll('.nav-link');
+navLinks.forEach(link=>{
+  link.addEventListener('click',()=>document.querySelector('.nav-link.active')?.classList.remove('active'));
 });
