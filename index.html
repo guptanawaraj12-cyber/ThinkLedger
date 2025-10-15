@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MindMargin</title>
+  <title>EduNotes Hub</title>
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
@@ -16,10 +16,10 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Header -->
   <header>
     <nav class="navbar">
-      <div class="nav-brand">ThinkLedger</div>
+      <div class="nav-brand">EduNotes Hub</div>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#home">Home</a></li>
         <li><a href="#biology">Biology</a></li>
@@ -28,85 +28,53 @@
         <li><a href="#math">Mathematics</a></li>
         <li><a href="#search">Search</a></li>
       </ul>
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </div>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <main>
     <section id="home" class="hero">
-      <h1>Welcome to MindMargin</h1>
+      <h1>Welcome to EduNotes Hub</h1>
       <p>Free study notes for students. Covering high school and college subjects like Biology, Physics, Chemistry, and Mathematics.</p>
       <button onclick="scrollToSection('biology')">Start Learning</button>
     </section>
 
-    <!-- Search Section -->
-    <section id="search" class="search-section">
-      <h2>Search Notes</h2>
-      <input type="text" id="searchInput" placeholder="Search for topics (e.g., 'photosynthesis' or 'Newton’s laws')">
-    </section>
+  <!-- Search Box -->
+  <section class="search-section">
+    <h3>Search Notes</h3>
+    <input type="text" placeholder="Search topics like 'cell structure', 'motion', etc." />
+  </section>
 
-    <!-- Biology Section -->
-    <section id="biology" class="notes-section">
-      <h2>Biology Notes</h2>
-      <div class="note-card">
-        <h3>Cell Structure</h3>
-        <p>Cells are the basic units of life. Prokaryotic cells lack a nucleus, while eukaryotic cells have one.</p>
-        <p>Key equation for cell volume: \( V = \frac{4}{3}\pi r^3 \)</p>
-        <a href="#" class="download-btn">Download PDF</a>
+  <!-- Notes Cards -->
+  <section class="subjects">
+    <h3>Explore Subjects</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4>Biology</h4>
+        <p>Learn about cells, genetics, plants, and animals.</p>
+        <a href="#">View Notes</a>
       </div>
-
-      <div class="note-card">
-        <h3>Photosynthesis</h3>
-        <p>The process by which plants convert light energy into chemical energy: \( 6CO_2 + 6H_2O \rightarrow C_6H_{12}O_6 + 6O_2 \)</p>
-        <a href="#" class="download-btn">Download PDF</a>
+      <div class="card">
+        <h4>Physics</h4>
+        <p>Understand motion, forces, and energy through clear notes.</p>
+        <a href="#">View Notes</a>
       </div>
-    </section>
-
-    <!-- Physics Section -->
-    <section id="physics" class="notes-section">
-      <h2>Physics Notes</h2>
-      <div class="note-card">
-        <h3>Newton’s Laws of Motion</h3>
-        <p>1️⃣ An object at rest stays at rest.<br>
-           2️⃣ \( F = ma \)<br>
-           3️⃣ Action-reaction pairs.</p>
-        <a href="#" class="download-btn">Download PDF</a>
+      <div class="card">
+        <h4>Chemistry</h4>
+        <p>Study atoms, reactions, and equations in simple terms.</p>
+        <a href="#">View Notes</a>
       </div>
-
-      <div class="note-card">
-        <h3>Gravitation</h3>
-        <p>Universal Law: \( F = G \frac{m_1 m_2}{r^2} \)</p>
-        <a href="#" class="download-btn">Download PDF</a>
+      <div class="card">
+        <h4>Mathematics</h4>
+        <p>Master formulas, theorems, and problem-solving tips.</p>
+        <a href="#">View Notes</a>
       </div>
-    </section>
-
-    <!-- Chemistry Section -->
-    <section id="chemistry" class="notes-section">
-      <h2>Chemistry Notes</h2>
-      <div class="note-card">
-        <h3>Atomic Structure</h3>
-        <p>Atoms consist of protons, neutrons, and electrons. Bohr’s model: electrons orbit in fixed energy levels.</p>
-        <a href="#" class="download-btn">Download PDF</a>
-      </div>
-    </section>
-
-    <!-- Math Section -->
-    <section id="math" class="notes-section">
-      <h2>Mathematics Notes</h2>
-      <div class="note-card">
-        <h3>Quadratic Formula</h3>
-        <p>Roots of \( ax^2 + bx + c = 0 \): \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)</p>
-        <a href="#" class="download-btn">Download PDF</a>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 MindMargin | Made with ThinkLedger for learners</p>
+    <p>© 2025 EduNotes Hub | Made with ❤️ for learners</p>
   </footer>
 
 </body>
