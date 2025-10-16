@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,122 +14,144 @@
   <!-- FontAwesome icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-
   <title>ThinkLedger</title>
-</head>
-<body style="font-family:'Poppins',sans-serif;">
+
+<body>
 
   <!-- ================= NAVBAR ================ -->
-  <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3 sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">
-        <img src="img/logo.svg" width="35" class="me-2"> ThinkLedger
+      <a class="navbar-brand" href="#">
+        <img src="https://i.imgur.com/gLueDBo.png" width="35" class="me-2"> ThinkLedger
       </a>
 
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div id="navMenu" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto gap-lg-4">
+        <ul class="navbar-nav ms-auto gap-lg-4 align-items-center">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#subjects">Notes</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-3">
+            <div class="theme-switch-wrapper">
+              <i class="fas fa-sun"></i>
+              <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+              </label>
+              <i class="fas fa-moon"></i>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- ================ HERO ==================== -->
-  <section class="position-relative overflow-hidden pt-5 pb-6 bg-light">
+  <section class="hero-section">
     <div class="container">
       <div class="row align-items-center">
-        <!-- Left content -->
         <div class="col-md-6">
-          <h1 class="display-5 fw-bold">Learning Made Easy</h1>
-          <p class="lead mb-4">An online learning platform for school students.</p>
-
-          <div class="input-group shadow-sm w-75">
+          <h1 class="display-4">Learning Made Easy</h1>
+          <p class="lead mb-4">An online learning platform for school students, now with a modern twist.</p>
+          <div class="input-group hero-search-bar shadow-lg">
             <input type="text" class="form-control p-3" placeholder="Find your notes..." />
-            <button class="btn btn-primary px-4">Search</button>
+            <button class="btn px-4">Search</button>
           </div>
         </div>
-
-        <!-- Right illustration -->
         <div class="col-md-6 text-center mt-5 mt-md-0">
-          <img src="img/hero-illustration.svg" class="img-fluid" alt="Illustration" style="max-height:320px;">
+          <img src="https://i.imgur.com/KgDKEeS.png" class="img-fluid hero-illustration" alt="Illustration">
         </div>
       </div>
     </div>
-
-    <!-- Decorative bottom wave SVG -->
-    <svg class="position-absolute bottom-0 start-0 w-100" height="120" preserveAspectRatio="none" viewBox="0 0 1200 120">
-      <path d="M0,0V46.29c47.67,22,98.58,29,148.24..."
-            fill="#ffffff"></path>
-    </svg>
   </section>
 
   <!-- ================ SUBJECT CARDS =========== -->
   <section id="subjects" class="py-5">
     <div class="container">
-      <h2 class="text-center fw-semibold mb-5">Explore Subjects</h2>
-
+      <h2 class="text-center fw-bold mb-5">Explore Subjects</h2>
       <div class="row g-4">
-        <!-- Card template -->
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body">
-              <h5 class="card-title">Biology</h5>
-              <p class="card-text">Learn about cells, genetics, plants, and animals.</p>
-              <a href="biology.html" class="btn btn-outline-primary">View Notes</a>
-            </div>
+          <div class="subject-card">
+            <div class="card-icon"><i class="fas fa-dna"></i></div>
+            <h5 class="card-title">Biology</h5>
+            <p class="card-text">Learn about cells, genetics, plants, and animals.</p>
+            <a href="#" class="btn">View Notes</a>
           </div>
         </div>
-
-        <!-- Repeat cards -->
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body">
-              <h5 class="card-title">Physics</h5>
-              <p class="card-text">Understand motion, forces, and energy.</p>
-              <a href="physics.html" class="btn btn-outline-primary">View Notes</a>
-            </div>
+          <div class="subject-card">
+            <div class="card-icon"><i class="fas fa-atom"></i></div>
+            <h5 class="card-title">Physics</h5>
+            <p class="card-text">Understand motion, forces, and energy.</p>
+            <a href="#" class="btn">View Notes</a>
           </div>
         </div>
-
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body">
-              <h5 class="card-title">Chemistry</h5>
-              <p class="card-text">Explore elements, reactions, and lab techniques.</p>
-              <a href="chemistry.html" class="btn btn-outline-primary">View Notes</a>
-            </div>
+          <div class="subject-card">
+            <div class="card-icon"><i class="fas fa-flask"></i></div>
+            <h5 class="card-title">Chemistry</h5>
+            <p class="card-text">Explore elements, reactions, and lab techniques.</p>
+            <a href="#" class="btn">View Notes</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ================ FOOTER ================== -->
-  <footer class="bg-dark text-white py-4">
-    <div class="container text-center">
-      © 2025 ThinkLedger — All rights reserved.
+  <footer class="text-center">
+    <div class="container">
+      <div class="footer-social mb-3">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p style="color: var(--text-muted);">© 2025 ThinkLedger — All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Floating social buttons -->
-  <div class="social-links position-fixed top-50 translate-middle-y end-0 pe-2 d-flex flex-column gap-2">
-      <a href="#" class="btn btn-lg btn-primary rounded-circle"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="btn btn-lg btn-danger rounded-circle"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="btn btn-lg btn-info rounded-circle"><i class="fab fa-facebook-messenger"></i></a>
-      <a href="#" class="btn btn-lg btn-dark rounded-circle"><i class="fab fa-linkedin-in"></i></a>
-  </div>
-
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // --- Dark Mode Toggle ---
+    const toggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', function() {
+      const theme = this.checked ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    });
+
+    // --- Scroll Animation for Cards ---
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.subject-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
 </body>
 </html>
