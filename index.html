@@ -1,366 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap 5 CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- FontAwesome icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-
-  <title>ThinkLedger</title>
-
-  <style>
-    /* --- Design System & Dark Mode Variables --- */
-    :root {
-      --bg-color: #ffffff;
-      --bg-secondary: #f8f9fa;
-      --text-color: #212529;
-      --text-muted: #6c757d;
-      --primary-color: #6a11cb;
-      --secondary-color: #2575fc;
-      --card-bg: #ffffff;
-      --navbar-bg: rgba(255, 255, 255, 0.95);
-      --border-color: #dee2e6;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #121212;
-      --bg-secondary: #1e1e1e;
-      --text-color: #e0e0e0;
-      --text-muted: #a0a0a0;
-      --primary-color: #8b5cf6;
-      --secondary-color: #3b82f6;
-      --card-bg: #1e1e1e;
-      --navbar-bg: rgba(18, 18, 18, 0.95);
-      --border-color: #333333;
-    }
-
-    /* --- Global Styles & Resets --- */
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    /* --- Navbar --- */
-    .navbar {
-      background-color: var(--navbar-bg) !important;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-    }
-    .navbar-brand {
-      color: var(--primary-color) !important;
-      font-weight: 700;
-    }
-    .navbar-nav .nav-link {
-      color: var(--text-color) !important;
-      font-weight: 600;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-    .navbar-nav .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--primary-color);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-    .navbar-nav .nav-link:hover::after,
-    .navbar-nav .nav-link.active::after {
-      width: 80%;
-    }
-
-    /* --- Hero Section --- */
-    .hero-section {
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-      color: white;
-      padding: 100px 0 150px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-section h1 {
-      font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
-    .hero-illustration {
-      animation: float 6s ease-in-out infinite;
-      max-height: 400px;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    .hero-search-bar .form-control {
-      border: none;
-      padding: 15px 20px;
-      font-size: 1.1rem;
-    }
-    .hero-search-bar .btn {
-      background-color: var(--secondary-color);
-      border: none;
-      padding: 15px 30px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-    .hero-search-bar .btn:hover {
-      background-color: #1e5cc8;
-    }
-
-    /* --- Subject Cards --- */
-    .subject-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.3s ease;
-      height: 100%;
-      opacity: 0; /* For fade-in animation */
-      transform: translateY(20px);
-    }
-    .subject-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .subject-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-    .subject-card .card-icon {
-      font-size: 3rem;
-      color: var(--primary-color);
-      margin-bottom: 20px;
-    }
-    .subject-card .card-title {
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-    .subject-card .btn {
-      background-color: transparent;
-      color: var(--primary-color);
-      border: 2px solid var(--primary-color);
-      font-weight: 600;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-    }
-    .subject-card .btn:hover {
-      background-color: var(--primary-color);
-      color: white;
-      transform: scale(1.05);
-    }
-
-    /* --- Footer --- */
-    footer {
-      background-color: var(--bg-secondary) !important;
-      border-top: 1px solid var(--border-color);
-      padding: 40px 0;
-    }
-    .footer-social a {
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      margin: 0 10px;
-      transition: color 0.3s ease;
-    }
-    .footer-social a:hover {
-      color: var(--primary-color);
-    }
-
-    /* --- Dark Mode Toggle --- */
-    .theme-switch-wrapper {
-      display: flex;
-      align-items: center;
-    }
-    .theme-switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
-      margin-left: 10px;
-    }
-    .theme-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: .4s;
-      border-radius: 34px;
-    }
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
-    }
-    input:checked + .slider {
-      background-color: var(--primary-color);
-    }
-    input:checked + .slider:before {
-      transform: translateX(26px);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThinkLedger Notes</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- ================= NAVBAR ================ -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="image/hello.jpg" width="35" class="me-2"> ThinkLedger
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div id="navMenu" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto gap-lg-4 align-items-center">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#subjects">Notes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item ms-3">
-            <div class="theme-switch-wrapper">
-              <i class="fas fa-sun"></i>
-              <label class="theme-switch">
-                <input type="checkbox" id="theme-toggle">
-                <span class="slider"></span>
-              </label>
-              <i class="fas fa-moon"></i>
-            </div>
-          </li>
-        </ul>
-      </div>
+  <header class="hero">
+    <nav>
+      <div class="logo">ThinkLedger</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Notes</a></li>
+        <li><a href="#">Classes</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Modern Notes Portal</h1>
+      <p>Find classwise notes, question papers, and resources.</p>
+      <a class="cta-btn" href="#classes">Get Started</a>
     </div>
-  </nav>
+  </header>
 
-  <!-- ================ HERO ==================== -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <h1 class="display-4">Learning Made Easy</h1>
-          <p class="lead mb-4">An online learning platform for school students, now with a modern twist.</p>
-          <div class="input-group hero-search-bar shadow-lg">
-            <input type="text" class="form-control p-3" placeholder="Find your notes..." />
-            <button class="btn px-4">Search</button>
-          </div>
-        </div>
-        <div class="col-md-6 text-center mt-5 mt-md-0">
-          <img src="image/WhatsApp Image 2025-09-21 at 11.39.00_f1d86190.jpg" class="img-fluid hero-illustration" alt="Illustration">
-        </div>
-      </div>
+  <section class="classes" id="classes">
+    <h2>Select Your Class</h2>
+    <div class="class-grid">
+      <div class="class-card">Class 9</div>
+      <div class="class-card">Class 10</div>
+      <div class="class-card">Class 11</div>
+      <div class="class-card">Class 12</div>
     </div>
   </section>
 
-  <!-- ================ SUBJECT CARDS =========== -->
-  <section id="subjects" class="py-5">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-5">Explore Subjects</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="subject-card">
-            <div class="card-icon"><i class="fas fa-dna"></i></div>
-            <h5 class="card-title">Biology</h5>
-            <p class="card-text">Learn about cells, genetics, plants, and animals.</p>
-            <a href="#" class="btn">View Notes</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="subject-card">
-            <div class="card-icon"><i class="fas fa-atom"></i></div>
-            <h5 class="card-title">Physics</h5>
-            <p class="card-text">Understand motion, forces, and energy.</p>
-            <a href="#" class="btn">View Notes</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="subject-card">
-            <div class="card-icon"><i class="fas fa-flask"></i></div>
-            <h5 class="card-title">Chemistry</h5>
-            <p class="card-text">Explore elements, reactions, and lab techniques.</p>
-            <a href="library/Gravity.pdf.docx" target="_blank" class="btn">View Notes</a>
-          </div>
-        </div>
+  <section class="notes">
+    <h2>Latest Notes</h2>
+    <div class="notes-grid">
+      <div class="note-card">
+        <h3>Physics - Class 10</h3>
+        <p>Chapter 2: Force & Motion</p>
+        <a href="#" class="view-note-btn">View Note</a>
       </div>
+      <div class="note-card">
+        <h3>Biology - Class 12</h3>
+        <p>Genetics & Evolution</p>
+        <a href="#" class="view-note-btn">View Note</a>
+      </div>
+      <div class="note-card">
+        <h3>Chemistry - Class 11</h3>
+        <p>Organic Compounds</p>
+        <a href="#" class="view-note-btn">View Note</a>
+      </div>
+      <!-- Add more note-cards as needed -->
     </div>
   </section>
 
-  <!-- ================ FOOTER ================== -->
-  <footer class="text-center">
-    <div class="container">
-      <div class="footer-social mb-3">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-      <p style="color: var(--text-muted);">© 2025 ThinkLedger — All rights reserved.</p>
-    </div>
+  <footer>
+    <p>&copy; 2025 ThinkLedger. All rights reserved.</p>
   </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    // --- Dark Mode Toggle ---
-    const toggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    if (currentTheme === 'dark') {
-      toggle.checked = true;
-    }
-
-    toggle.addEventListener('change', function() {
-      const theme = this.checked ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    });
-
-    // --- Scroll Animation for Cards ---
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.subject-card').forEach(card => {
-      observer.observe(card);
-    });
-  </script>
-
 </body>
 </html>
