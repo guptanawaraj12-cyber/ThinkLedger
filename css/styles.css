@@ -178,3 +178,47 @@ footer {
   box-shadow: var(--shadow);
   border-radius: 0 0 16px 16px;
 }
+.subjects {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.subject-card {
+  background: #e6d6fa;
+  border-radius: 8px;
+  margin-bottom: 7px;
+  padding: 16px;
+  cursor: pointer;
+  color: #5B12A5;
+}
+
+.subject-card:hover {
+  background: #e5cffb;
+}
+
+.chapter-card {
+  background: #f9f6fd;
+  border-radius: 6px;
+  margin: 4px 0 4px 17px;
+  padding: 8px;
+  color: #555;
+}
+.chapter-notes {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.chapter-notes button {
+    background: linear-gradient(to right, purple, pink);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}

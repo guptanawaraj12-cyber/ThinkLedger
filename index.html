@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ThinkLedger Notes</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js"></script>
 </head>
 <body>
   <header class="hero">
@@ -26,15 +27,60 @@
   </header>
 
   <section class="classes" id="classes">
-    <h2>Select Your Class</h2>
-    <div class="class-grid">
-      <div class="class-card">Class 9</div>
-      <div class="class-card">Class 10</div>
-      <div class="class-card">Class 11</div>
-      <div class="class-card">Class 12</div>
-    </div>
-  </section>
+  <h2>Select Your Class</h2>
+  <div class="class-grid">
 
+    <div class="class-card" onclick="toggleSubjects('subjects')">Class 10
+      <div class="subjects" id="subjects" style="display:none;">
+        <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters10eng')">English
+           <div class="chapters" id="chapters10eng" style="display:none;">
+               <div class="chapter-card">Chapter 1: Grammar</div>
+               <div class="chapter-card">Chapter 2: Prose</div>
+           </div>
+        </div>
+        <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters9math')">Math
+          <div class="chapters" id="chapters9math" style="display:none;">
+               <div class="chapter-card">Chapter 1: Number System</div>
+               <div class="chapter-card">Chapter 2: Algebra</div>
+          </div>
+        </div>
+        <!-- Add more subjects/chapters here -->
+      </div>
+    </div>
+
+    <!-- Repeat similar block for other classes -->
+    <div class="class-card" onclick="toggleSubjects('subjects11')">Class 11
+      <div class="subjects" id="subjects11" style="display:none;">
+        <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters11phy')">Physics
+          <div class="chapters" id="chapters11phy" style="display:none;">
+            <div class="chapter-card">Chapter 1: Gravity</div>
+            <a href="library/Gravity.pdf.pdf" target="_blank"> view notes</a>
+            
+            <div class="chapter-card">Chapter 2: Force</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add more classes/subjects/chapters as needed -->
+  </div>
+  <div class="class-card" onclick="toggleSubjects('subjects12')">Class 12
+  <div class="subjects" id="subjects12" style="display:none;">
+    <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters12phy')">Physics
+      <div class="chapters" id="chapters12phy" style="display:none;">
+        <div class="chapter-card">Chapter 1: Electricity</div>
+        <div class="chapter-card">Chapter 2: Magnetism</div>
+      </div>
+    </div>
+    <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters12chem')">Chemistry
+      <div class="chapters" id="chapters12chem" style="display:none;">
+        <div class="chapter-card">Chapter 1: Chemical Kinetics</div>
+        <div class="chapter-card">Chapter 2: Surface Chemistry</div>
+      </div>
+    </div>
+    <!-- Add more subjects and chapters as needed -->
+  </div>
+</div>
+</section>
   <section class="notes">
     <h2>Latest Notes</h2>
     <div class="notes-grid">
