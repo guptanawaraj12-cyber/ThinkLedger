@@ -123,3 +123,31 @@ footer {
   background: #1a2b6d;
   color: white;
 }
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-icons a.facebook { background: #1877f2; }
+.social-icons a.instagram { background: #e4405f; }
+.social-icons a.youtube { background: #ff0000; }
+.social-icons a.linkedin { background: #0077b5; }
+
+.social-icons a:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
