@@ -1,110 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ThinkLedger Notes</title>
+  <title>ThinkLedger | Home</title>
   <link rel="stylesheet" href="css/styles.css">
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </head>
 <body>
-  <header class="hero">
-    <nav>
-      <div class="logo">ThinkLedger</div>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Notes</a></li>
-        <li><a href="#">Classes</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="hero-content">
-      <h1>Modern Notes Portal</h1>
-      <p>Find classwise notes, question papers, and resources.</p>
-      <a class="cta-btn" href="#classes">Get Started</a>
+  <header>
+    <div class="logo">
+      <img src="image/hello.jpg" alt="ThinkLedger Logo">
+      <h1>ThinkLedger</h1>
     </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="notes.html">Notes</a>
+      <a href="about.html">About Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <section class="classes" id="classes">
-  <h2>Select Your Class</h2>
-  <div class="class-grid">
+  <main>
+    <section class="intro">
+      <h2>Welcome to ThinkLedger</h2>
+      <p>Explore and share notes with students around Nepal!</p>
+    </section>
 
-    <div class="class-card" onclick="toggleSubjects('subjects')">Class 10
-      <div class="subjects" id="subjects" style="display:none;">
-        <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters10eng')">English
-           <div class="chapters" id="chapters10eng" style="display:none;">
-               <div class="chapter-card">Chapter 1: Grammar</div>
-               <div class="chapter-card">Chapter 2: Prose</div>
-           </div>
-        </div>
-        <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters9math')">Math
-          <div class="chapters" id="chapters9math" style="display:none;">
-               <div class="chapter-card">Chapter 1: Number System</div>
-               <div class="chapter-card">Chapter 2: Algebra</div>
-          </div>
-        </div>
-        <!-- Add more subjects/chapters here -->
+    <section class="grades">
+      <h3>Browse by Grade</h3>
+      <div class="grade-list">
+        <div class="grade-card" onclick="openSubjects('Grade 8')">Grade 8</div>
+        <div class="grade-card" onclick="openSubjects('Grade 9')">Grade 9</div>
+        <div class="grade-card" onclick="openSubjects('Grade 10')">Grade 10</div>
+        <div class="grade-card" onclick="openSubjects('Grade 11')">Grade 11</div>
+        <div class="grade-card" onclick="openSubjects('Grade 12')">Grade 12</div>
       </div>
-    </div>
-
-    <!-- Repeat similar block for other classes -->
-    <div class="class-card" onclick="toggleSubjects('subjects11')">Class 11
-      <div class="subjects" id="subjects11" style="display:none;">
-        <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters11phy')">Physics
-          <div class="chapters" id="chapters11phy" style="display:none;">
-            <div class="chapter-card">Chapter 1: Gravity</div>
-            <a href="library/Gravity.pdf.pdf" target="_blank"> view notes</a>
-            
-            <div class="chapter-card">Chapter 2: Force</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Add more classes/subjects/chapters as needed -->
-  </div>
-  <div class="class-card" onclick="toggleSubjects('subjects12')">Class 12
-  <div class="subjects" id="subjects12" style="display:none;">
-    <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters12phy')">Physics
-      <div class="chapters" id="chapters12phy" style="display:none;">
-        <div class="chapter-card">Chapter 1: Electricity</div>
-        <div class="chapter-card">Chapter 2: Magnetism</div>
-      </div>
-    </div>
-    <div class="subject-card" onclick="event.stopPropagation(); toggleChapters('chapters12chem')">Chemistry
-      <div class="chapters" id="chapters12chem" style="display:none;">
-        <div class="chapter-card">Chapter 1: Chemical Kinetics</div>
-        <div class="chapter-card">Chapter 2: Surface Chemistry</div>
-      </div>
-    </div>
-    <!-- Add more subjects and chapters as needed -->
-  </div>
-</div>
-</section>
-  <section class="notes">
-    <h2>Latest Notes</h2>
-    <div class="notes-grid">
-      <div class="note-card">
-        <h3>Physics - Class 10</h3>
-        <p>Chapter 2: Force & Motion</p>
-        <a href="#" class="view-note-btn">View Note</a>
-      </div>
-      <div class="note-card">
-        <h3>Biology - Class 12</h3>
-        <p>Genetics & Evolution</p>
-        <a href="#" class="view-note-btn">View Note</a>
-      </div>
-      <div class="note-card">
-        <h3>Chemistry - Class 11</h3>
-        <p>Organic Compounds</p>
-        <a href="#" class="view-note-btn">View Note</a>
-      </div>
-      <!-- Add more note-cards as needed -->
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
+    <div class="social-icons">
+      <a href="#" target="_blank">📘</a>
+      <a href="#" target="_blank">📸</a>
+      <a href="#" target="_blank">🔗</a>
+      <a href="#" target="_blank">▶</a>
+    </div>
     <p>&copy; 2025 ThinkLedger. All rights reserved.</p>
   </footer>
+
+  <!-- Popup for subjects -->
+  <div id="subjectPopup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h3 id="popupTitle"></h3>
+      <div id="subjectList"></div>
+    </div>
+  </div>
 </body>
 </html>
